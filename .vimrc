@@ -1,3 +1,6 @@
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['ruby'] = 'ruby,rails'
 
 " testando
 set aw                                   " AutoWrite: gravacao automatica a cada alteracao
