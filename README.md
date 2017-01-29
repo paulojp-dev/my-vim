@@ -1,5 +1,7 @@
 # My Vim
 
+Author : João Paulo Ferreira (PauloJP)
+
 ![my-vim](https://raw.githubusercontent.com/paulojp-dev/my-vim/master/my-vim.png)
 
 #### Plugins Instalados
