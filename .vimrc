@@ -47,13 +47,13 @@ let mapleader=","
 
 " Indentação Automática
 set smartindent
-set autoindent                    " autoidentacao
+set autoindent                    " Auto indentação
 set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-" retab                             " Converter os TABs já existentes
+" retab                           " Converte os TABs já existentes
 " set et                          " Troca tabs poe espaços
 
 filetype plugin on
