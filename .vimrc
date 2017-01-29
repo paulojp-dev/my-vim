@@ -9,7 +9,7 @@ set nocompatible
 set title                         " muda o título do terminal
 set ruler                         " Mostra barra de status com posição do cursor
 set cursorline                    " show line in the actual position
-set showmatch                     " Mostra caracter correspondente (), [], {}, etc...
+set showmatch                     " Mostra character correspondente (), [], {}, etc...
 set number                        " Exibe a numeração das linhas
 set backspace=indent,eol,start    " Permite 'backspace' no modo de inserção
 set history=1000                  " Limita o histórico de comandos até 1000 linhas
@@ -18,7 +18,7 @@ set visualbell                    " No sounds
 set autoread                      " Reload files changed outside vim
 set showmode                      " Show current mode down the bottom
 set showcmd                       " Show incomplete cmds down the bottom
-set autowrite                     " Gravação automática a cada auteração
+set autowrite                     " Gravação automática a cada alteração
 set showcmd                       " Mostra o comando sendo executado
 set clipboard=unnamedplus         " copy clipboard
 set ignorecase                    "faz o vim ignorar maiúsculas e minúsculas nas buscas
@@ -42,8 +42,8 @@ let mapleader=","
 
 " ====== Indentation ======
 
-autocmd FileType html setlocal shiftwidth=2 abstop=2
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+" autocmd FileType html setlocal shiftwidth=2 abstop=2
+" autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Indentação Automática
 set smartindent
@@ -53,7 +53,7 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set expandtab
-" retab                             " Converter os TABs ja existentes
+" retab                             " Converter os TABs já existentes
 " set et                          " Troca tabs poe espaços
 
 filetype plugin on
@@ -84,7 +84,7 @@ set smartindent
 
 set foldmethod=indent             "fold based on indent
 set foldnestmax=3                 "deepest fold is 3 levels
-set nofoldenable                  "dont fold by default
+set nofoldenable                  "don't fold by default
 
 " ====== Completion ======
 
@@ -109,6 +109,30 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set scrolloff=8                   "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+
+" ====== Auto Corretor Vim ======
+
+" Ativa corretor
+
+" Ativa o corretor para pt_BR
+nnoremap <leader>pt :set spell spelllang=pt<CR>
+" Ativa o corretor para en_US
+nnoremap <leader>en :set spell spelllang=en<CR>
+" Ativa o corretor para pt e en juntos
+nnoremap <leader>pe :set spell spelllang=pt,en<CR>
+
+" Comandos
+" ]s        vai para a próxima palavra;
+" [s        vai para a palavra anterior;
+" ]z=       mostra a lista de sugestões para a palavra;
+" zg        adiciona a palavra sob o cursor no dicionário, assim ela não será mais marcada como errada;
+" zug       desfaz a última palavra adicionada;
+" zw        remove a palavra sob o cursor do dicionário, assim ela será marcada como errada;
+" zuw       desfaz a última palavra removida.
+
+" Cores para o corretor
+hi SpellCap ctermfg=Gray ctermbg=Blue
+hi SpellBad ctermfg=Gray ctermbg=DarkRed
 
 " ==========================================================|| ESSENTIAL CONFIG
 
@@ -143,7 +167,7 @@ nmap <C-f> :q!<CR>
 " ====== Seleção de Texto =======
 
 " Limpa seleção de texto
-nmap <C-c> :nohl<CR>
+nmap <C-c> :nohl<CR> :set nospell<CR>
 
 " ====== Copiar e Colar ======
 
@@ -247,27 +271,27 @@ map <leader>% di{%  %<left><left>pa
 "zz automático quando desce j
 nnoremap j zzj
 
-"zz automatico quando sobe k
+"zz automático quando sobe k
 nnoremap k zzk
 
-"zz automatico quando pula {
+"zz automático quando pula {
 nnoremap { zz{
 
-"zz automatico quando pula }
+"zz automático quando pula }
 nnoremap } zz}
 
-"zz automatico quando pula (
+"zz automático quando pula (
 nnoremap ( zz(
 
-"zz automatico quando pula )
+"zz automático quando pula )
 nnoremap ) zz)
 
-"zz automatico quando da ENTER em modo de INSERÇÃO
+"zz automático quando da ENTER em modo de INSERÇÃO
 inoremap <CR> <CR><ESC>zzi
 
 " ====== Redimensionar / Mover Telas ======
 
-" Redimencionar telas
+" Redimensionar telas
 nnoremap <C-Up> <C-w>+
 nnoremap <C-Down> <C-w>-
 nnoremap <C-Left> <C-w><
@@ -314,14 +338,14 @@ let g:airline_powerline_fonts=1
 " define color para o terminal
 set t_Co=256
 
-" icônes na lista de navegação
+" ícones na lista de navegação
 let g:webdevicons_enable = 1
 
 " Always show statusline
 set laststatus=2
 
 
-" adding the flags to NERDTree 
+" adding the flags to NERDTree
 let g:webdevicons_enable_nerdtree = 1"
 
 " ====== PLUGIN : NERDTHREE ======
@@ -383,7 +407,7 @@ call vundle#begin()
 " Vim Fugitive - Permite comandos do GIT dentro do Vim
 Plugin 'tpope/vim-fugitive'
 
-" Smart Tab - Mantem a posição e a identação do TAB
+" Smart Tab - Mantem a posição e a indentação do TAB
 Plugin 'dpc/vim-smarttabs'
 
 " let Vundle manage Vundle, required
@@ -396,17 +420,17 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'scrooloose/nerdtree'
 
 " Air Line - Barra de status e título
-" Trabalha junto com o powerline aplicando no vim
+" Trabalha junto com o Powerline aplicando no vim
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" Vim Instant Markdown - Prévisualização de arquivos markdown
+" Vim Instant Markdown - Pré visualização de arquivos markdown
 Plugin 'suan/vim-instant-markdown'
 
 " Emmet - Snippets HTML
 Plugin 'mattn/emmet-vim'
 
-" Vim Markdown - Reconhece a syntaxe Markdown
+" Vim Markdown - Reconhece a sintaxe Markdown
 Plugin 'plasticboy/vim-markdown'
 
 " Auto Pairs - Fecha pares automaticamente: (), [], {}, ...
