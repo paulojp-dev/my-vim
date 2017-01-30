@@ -143,11 +143,11 @@ hi SpellBad ctermfg=Gray ctermbg=DarkRed
 " ====== Recarrega o vimrc ======
 
 if &term == "win32" || "pcterm" || has("gui_win32")
-	map ,v :e $HOME/_vimrc<CR>
-	nmap <F5> :<C-u>source ~/_vimrc <BAR> :nohl <BAR> echo "Vimrc recarregado!"<CR>
+  map ,v :e $HOME/_vimrc<CR>
+  nmap <F5> :<C-u>source ~/_vimrc <BAR> :nohl <BAR> echo "Vimrc recarregado!"<CR>
 else
-	map ,v :e $HOME/.vimrc<CR>
-	nmap <F5> :<C-u>source ~/.vimrc <BAR> :nohl <BAR> echo "Vimrc recarregado!"<CR>
+  map ,v :e $HOME/.vimrc<CR>
+  nmap <F5> :<C-u>source ~/.vimrc <BAR> :nohl <BAR> echo "Vimrc recarregado!"<CR>
 endif
 
 " ====== Salvando e Saindo ======
@@ -355,8 +355,8 @@ map <C-\> :NERDTreeToggle<CR>
 
 "DTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-	exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-	exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
 " ====== PLUGIN : VIM INSTANT MARKDOWN ======
@@ -403,6 +403,9 @@ filetype off                  " required
 " ====== Begin Plugins ======
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+"
+Plugin 'altercation/vim-colors-solarized'
 
 " Vim Fugitive - Permite comandos do GIT dentro do Vim
 Plugin 'tpope/vim-fugitive'
@@ -459,9 +462,35 @@ filetype plugin indent on    " required
 " APARÊNCIA =================================================================->
 
 " Theme
-" set background=dark
-" let transparent=256
-" hi Normal          ctermfg=252 ctermbg=none
-" colorscheme transparent
+"set background=dark
+"  let transparent=256
+"  hi Normal          ctermfg=252 ctermbg=none
+" hi Normal ctermbg=none
+
+" ====== Solarized ======
+
+syntax enable
+" Solarized Dark
+set background=dark
+" Solarized Light
+" set background=light
+
+" Essas configurações devem ser inseridas antes do 'colorscheme'
+" g:solarized_termcolors= 16 | 256
+" g:solarized_termtrans = 0 | 1
+" g:solarized_degrade = 0 | 1
+" g:solarized_bold = 1 | 0
+" g:solarized_underline = 1 | 0
+" g:solarized_italic = 1 | 0
+" g:solarized_contrast = “normal”| “high” or “low”
+" g:solarized_visibility= “normal”| “high” or “low”
+
+" Ignora as cores do terminal,aplica as cores do tema solarized
+" let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+let g:solarized_contrast = "high"
+let g:solarized_visibility = "high"
+
+colorscheme solarized
 
 " ==================================================================|| APARÊNCIA
