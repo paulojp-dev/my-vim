@@ -1,3 +1,4 @@
+
 " ESSENTIAL CONFIG ===========================================================->
 
 " ====== General Config ======
@@ -22,6 +23,7 @@ set autowrite                     " Gravação automática a cada alteração
 set showcmd                       " Mostra o comando sendo executado
 set clipboard=unnamedplus         " copy clipboard
 set ignorecase                    "faz o vim ignorar maiúsculas e minúsculas nas buscas
+set hls
 " set statusline=%<%f\ %h%w%m%r%y%=L:%l/%L\ (%p%%)\ C:%c%V\ B:%o\ F:%{foldlevel('.')}
 
 " This makes vim act like all other editors, buffers can
@@ -45,16 +47,21 @@ let mapleader=","
 " autocmd FileType html setlocal shiftwidth=2 abstop=2
 " autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
-" Indentação Automática
+set noexpandtab
+set preserveindent
+set expandtab
+set smarttab
 set smartindent
 set autoindent                    " Auto indentação
-set smarttab
 set shiftwidth=2
-set softtabstop=2
+set softtabstop=0
 set tabstop=2
-set expandtab
 " retab                           " Converte os TABs já existentes
 " set et                          " Troca tabs poe espaços
+
+set number
+set tabstop=2
+set shiftwidth=2
 
 filetype plugin on
 filetype indent on
@@ -71,14 +78,6 @@ set smartcase                     " ...unless we type a capital
 set number
 syntax on
 filetype plugin indent on
-
-set number
-set tabstop=2
-set shiftwidth=2
-set hls
-set smartindent
-" set list listchars=tab:\ \ ,trail:
-" set noswapfile
 
 " ====== Folds ======
 
@@ -379,10 +378,13 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " ====== PLUGIN : EMMET Autocomplete command ======
 
 " atalhos para gerar html
-imap <C-Space> <C-y>,
-imap <C-@> <C-y>,
+imap <C-t> <C-y>,
 
 " ====== PLUGIN : SNIPMATE ======
+
+" Gerar snnipets com o comando 'C-a'
+imap <C-a> <Plug>snipMateNextOrTrigger
+smap <C-a> <Plug>snipMateNextOrTrigger
 
 " ativa o contexto de ruby jutamente com rails
 let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
@@ -404,7 +406,10 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+
 Plugin 'altercation/vim-colors-solarized'
 
 " Vim Fugitive - Permite comandos do GIT dentro do Vim
@@ -412,9 +417,6 @@ Plugin 'tpope/vim-fugitive'
 
 " Smart Tab - Mantem a posição e a indentação do TAB
 Plugin 'dpc/vim-smarttabs'
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
 
 " Command T - Navegar entre arquivos
 Plugin 'git://git.wincent.com/command-t.git'
@@ -469,7 +471,7 @@ filetype plugin indent on    " required
 
 " ====== Solarized ======
 
-syntax enable
+" syntax enable
 " Solarized Dark
 set background=dark
 " Solarized Light
