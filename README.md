@@ -2,6 +2,10 @@
 
 Author : João Paulo Ferreira (PauloJP)
 
+#### Print Screen Com o Tema Solarized
+![my-vim](https://raw.githubusercontent.com/paulojp-dev/my-vim/master/my-vim-02.png)
+
+#### Print Screen Com o Tema Padrão
 ![my-vim](https://raw.githubusercontent.com/paulojp-dev/my-vim/master/my-vim.png)
 
 #### Plugins Instalados
